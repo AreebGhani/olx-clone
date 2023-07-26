@@ -2,26 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/Roboto-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+    font-family: 'BwModelica';
+    src: url('/assets/fonts/BwModelica-Bold.woff2') format('woff2'),
+        url('/assets/fonts/BwModelica-Regular.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: 'Roboto', Helvetica, sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    letter-spacing: normal;
+    overflow-x: hidden;
+    scrollbar-color: #c8f8f6;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+    width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(54, 54, 54);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #fff;
+    border: 5px solid transparent;
+    border-radius: 9px;
+    background-clip: content-box;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: 'Roboto', Helvetica, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+    font-family: 'Roboto', Helvetica, sans-serif !important;
+}
+
+.location-box:focus-within .location-box-inner {
+    border: .1rem solid #23e5db
+}
+
+.ArrowDown {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.location-box:focus-within .ArrowDown {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.DropDown-Location,
+.DropDown-Find {
+    display: none;
+    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .12), 0 6px 6px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .12), 0 6px 6px 0 rgba(0, 0, 0, .24);
+}
+
+.DropDown-Location::-webkit-scrollbar,
+.DropDown-Find::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.DropDown-Location::-webkit-scrollbar-track,
+.DropDown-Find::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.DropDown-Location::-webkit-scrollbar-thumb,
+.DropDown-Find::-webkit-scrollbar-thumb {
+    background: #23e5db;
+    border: 5px solid transparent;
+    border-radius: 9px;
+    background-clip: content-box;
+}
+
+.DropDown-Find button.selected {
+    background-color: #c8f8f6;
+    outline: none;
+}
+
+.location-box:focus-within .DropDown-Location {
+    display: block;
+}
+
+.find-box:focus-within .find-box-inner {
+    border: .1rem solid #23e5db;
+    border-right: none;
+}
+
+.find-box:focus-within .DropDown-Find {
+    display: block;
 }
